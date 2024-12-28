@@ -4391,7 +4391,7 @@ local function webhook ()
 	local newGems = ""
 	local TotalGems = makeComma(player._stats.gem_amount.Value)
 	local TotalGold = makeComma(player._stats.gold_amount.Value)
-	local TotalPearl = makeComma(player._stats._resourceSummerPearls.Value)
+	local TotalEvent = makeComma(player._stats._resourceHolidayStars.Value)
 	local BattlePass = ''
 	local reachedTier = 0
 	local reachedTierExp = 0
@@ -4464,7 +4464,7 @@ local function webhook ()
 				['fields'] = {
 					{
 						['name'] = "Player Stats",
-						['value'] = string.format( "<:Gems:1148368507029950515> %s\n<:Gold:1148368511463338074> %s\n<:Pearls:1148369019137708193> %s\n:tickets: Tier: %s", TotalGems, TotalGold, TotalPearl, BattlePass),
+						['value'] = string.format( "<:Gems:1148368507029950515> %s\n<:Gold:1148368511463338074> %s\n<:shinyhunter:1087131902298820658> %s\n:tickets: Tier: %s", TotalGems, TotalGold, TotalEvent, BattlePass),
 						['inline'] = true
 					},
 
