@@ -4333,12 +4333,13 @@ end)
 
 if GetSave('Hide Map') then Hide_Map(true) HideMap.Parent.BackgroundColor3 = checkBoxColors[true] end
 
-local RareDrop = {"Sea God's Portal"}
+local RareDrop = {
+	
+}
 
 local oldPlayerStats = {
 	Gems = player._stats.gem_amount.Value,
 	Gold = player._stats.gold_amount.Value,
-	Pearls = player._stats._resourceSummerPearls.Value,
 	PlayerXP = player._stats.player_xp.Value,
 }
 
@@ -4362,7 +4363,6 @@ local function webhook ()
 		{name = 'XP', amount = player._stats.player_xp.Value - oldPlayerStats.PlayerXP},
 		{name = 'Gems', amount = player._stats.gem_amount.Value - oldPlayerStats.Gems},
 		{name = 'Gold', amount = player._stats.gold_amount.Value - oldPlayerStats.Gold},
-		{name = 'Summer Pearls', amount = player._stats._resourceSummerPearls.Value - oldPlayerStats.Pearls},
 
 	}
 
