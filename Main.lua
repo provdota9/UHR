@@ -4435,11 +4435,16 @@ local function webhook ()
 	end
 
 	local currentItemCount = 0
-	for itemName, itemAmount in pairs(newItemsTable) do
-		currentItemCount += 1 local comma = "" if currentItemCount ~= newItemsCount then comma = "\n" end
-
-		newItems = newItems .. string.format('+%s (%s)', itemName, itemAmount) .. comma
-
+	for itemId, itemData in pairs(newItemsData) do
+		local currentItemCount = 0
+		for itemName, itemAmount in pairs(newItemsTable) do
+			currentItemCount = currentItemCount + 1
+			local comma = ""
+	
+			if itemData.Name == itemName then
+				newItems = newItems .. string.format("+%s (%s) [%s] Total: (x%s) \n", itemName, itemAmount, itemData.Rarity, itemData.Amount) .. comma
+			end
+		end
 	end
 
 	if not ping then userID = "" end
@@ -4495,7 +4500,7 @@ task.spawn(function()
 	pcall(function()
 		
 		if queue_on_teleport then
-			local UltraHubSCRIPT = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/ultrahub7/Ultra-Hub/main/Main.lua"))()'
+			local UltraHubSCRIPT = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/provdota9/UHR/refs/heads/main/Main.lua"))()'
 			queue_on_teleport(UltraHubSCRIPT)
 		end
 		
